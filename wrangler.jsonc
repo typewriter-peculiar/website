@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "typewriter-chat",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-27",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

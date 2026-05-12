@@ -1,0 +1,14 @@
+{
+  "name": "typewriter-chat-site",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Basic typewriter.chat website (Cloudflare Worker)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "types": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260426.1",
+    "wrangler": "^4.85.0"
+  }
+}
