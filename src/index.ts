@@ -56,11 +56,13 @@ const html = `<!doctype html>
       function addLine(label, text) {
         const line = document.createElement("p");
         const labelNode = document.createElement("span");
+        const textNode = document.createTextNode(" " + text);
         line.className = "line";
         labelNode.className = "label";
         labelNode.textContent = label + ":";
-        line.append(labelNode, " " + text);
+        line.append(labelNode, textNode);
         chat.appendChild(line);
+        return textNode;
       }
 
       document.querySelector("#send").addEventListener("click", async () => {
@@ -72,13 +74,26 @@ const html = `<!doctype html>
         button.disabled = true;
 
         try {
+          const reply = addLine("typewriter", "");
           const response = await fetch("/api/chat", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ message: text }),
           });
-          const data = await response.json();
-          addLine("typewriter", data.reply || data.error || "No response");
+
+          if (!response.ok) {
+            reply.data += await response.text();
+            return;
+          }
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            reply.data += decoder.decode(value, { stream: true });
+          }
         } catch (error) {
           addLine("typewriter", "Error talking to the model.");
         } finally {
@@ -98,6 +113,61 @@ function json(data: unknown, init?: ResponseInit): Response {
   return new Response(JSON.stringify(data), {
     ...init,
     headers: { ...jsonHeaders, ...init?.headers },
+  });
+}
+
+function streamVllmResponse(upstream: Response): Response {
+  const decoder = new TextDecoder();
+  const encoder = new TextEncoder();
+  let buffer = "";
+
+  const stream = new ReadableStream({
+    async start(controller) {
+      const reader = upstream.body?.getReader();
+
+      if (!reader) {
+        controller.close();
+        return;
+      }
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) {
+          controller.close();
+          break;
+        }
+
+        buffer += decoder.decode(value, { stream: true });
+        const events = buffer.split("\n\n");
+        buffer = events.pop() ?? "";
+
+        for (const event of events) {
+          for (const line of event.split("\n")) {
+            if (!line.startsWith("data: ")) continue;
+
+            const data = line.slice(6).trim();
+            if (!data || data === "[DONE]") continue;
+
+            const chunk = JSON.parse(data) as {
+              choices?: Array<{ delta?: { content?: string } }>;
+            };
+            const content = chunk.choices?.[0]?.delta?.content;
+
+            if (content) {
+              controller.enqueue(encoder.encode(content));
+            }
+          }
+        }
+      }
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "cache-control": "no-cache",
+      "content-type": "text/plain; charset=utf-8",
+    },
   });
 }
 
@@ -132,6 +202,11 @@ export default {
         body: JSON.stringify({
           model: env.VLLM_MODEL,
           messages: [{ role: "user", content: prompt }],
+          temperature: 0.7,
+          top_p: 0.95,
+          max_tokens: 400,
+          repetition_penalty: 1.08,
+          stream: true,
         }),
       });
 
@@ -139,11 +214,7 @@ export default {
         return json({ error: await upstream.text() }, { status: upstream.status });
       }
 
-      const data = (await upstream.json()) as {
-        choices?: Array<{ message?: { content?: string } }>;
-      };
-
-      return json({ reply: data.choices?.[0]?.message?.content ?? "" });
+      return streamVllmResponse(upstream);
     }
 
     return new Response("Not found", { status: 404 });
