@@ -25,8 +25,24 @@ Open the URL printed by Wrangler. Change `src/index.ts`, save, refresh.
 After Cloudflare Workers Builds is connected, `git push origin main` can run
 `npm ci` then `npx wrangler deploy` and serve the result on `typewriter.chat`.
 
+## vLLM
+
+Set these Cloudflare Worker variables/secrets:
+
+```bash
+VLLM_URL=http://108.39.26.2:48891
+VLLM_MODEL=typewriter-1913-sft
+VLLM_API_KEY=YOUR_SECRET_KEY
+```
+
+Run vLLM on Vast.ai so it listens publicly:
+
+```bash
+--host 0.0.0.0 --port 8000 --api-key YOUR_SECRET_KEY
+```
+
 ## Structure
 
-- `src/index.ts` - Worker entrypoint and inline landing page
+- `src/index.ts` - Worker entrypoint, simple chat page, and `/api/chat` proxy
 - `wrangler.jsonc` - Worker config
 - `package.json` - local dev dependencies and scripts
