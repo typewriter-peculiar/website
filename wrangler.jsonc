@@ -3,6 +3,10 @@
   "name": "typewriter-chat-website",
   "main": "src/index.ts",
   "compatibility_date": "2026-04-27",
+  "vars": {
+    "VLLM_URL": "http://108.39.26.2:48891",
+    "VLLM_MODEL": "typewriter-1913-sft"
+  },
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
