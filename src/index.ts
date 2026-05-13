@@ -45,7 +45,7 @@ const html = `<!doctype html>
   <body>
     <h1>typewriter.chat</h1>
     <div id="chat" class="chat"></div>
-    <textarea id="message" placeholder="Say hi..."></textarea>
+    <textarea id="message" placeholder="Type: How can I travel to the moon?"></textarea>
     <br />
     <button id="send">Send</button>
     <script>

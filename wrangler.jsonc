@@ -4,7 +4,7 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-04-27",
   "vars": {
-    "VLLM_URL": "http://108.39.26.2:48891",
+    "VLLM_URL": "https://hope-previews-laid-ash.trycloudflare.com",
     "VLLM_MODEL": "typewriter-1913-sft"
   },
   "observability": {
