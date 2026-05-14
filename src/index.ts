@@ -45,7 +45,7 @@ const html = `<!doctype html>
   <body>
     <h1>typewriter.chat</h1>
     <div id="chat" class="chat"></div>
-    <textarea id="message" placeholder="Compose a poem upon the subject of dark enlightenment."></textarea>
+    <textarea id="message" placeholder="Compose a poem upon the subject of moonlight."></textarea>
     <br />
     <button id="send">Send</button>
     <script>
