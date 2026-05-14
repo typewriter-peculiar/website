@@ -45,7 +45,7 @@ const html = `<!doctype html>
   <body>
     <h1>typewriter.chat</h1>
     <div id="chat" class="chat"></div>
-    <textarea id="message" placeholder="Type: How can I travel to the moon?"></textarea>
+    <textarea id="message" placeholder="Compose a poem upon the subject of dark enlightenment."></textarea>
     <br />
     <button id="send">Send</button>
     <script>
@@ -69,7 +69,7 @@ const html = `<!doctype html>
         const text = message.value.trim();
         if (!text) return;
 
-        addLine("user", text);
+        addLine("typist", text);
         message.value = "";
         button.disabled = true;
 
