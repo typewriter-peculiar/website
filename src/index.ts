@@ -9,7 +9,7 @@ const html = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>typewriter.chat</title>
+    <title>A glimpse of 1913</title>
     <style>
       body {
         max-width: 720px;
