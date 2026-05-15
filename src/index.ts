@@ -9,7 +9,7 @@ const html = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A glimpse of 1913</title>
+    <title>A Glimpse of 1913</title>
     <style>
       body {
         max-width: 720px;
@@ -43,7 +43,7 @@ const html = `<!doctype html>
     </style>
   </head>
   <body>
-    <h1>typewriter.chat</h1>
+    <h1>A glimpse of 1913</h1>
     <div id="chat" class="chat"></div>
     <textarea id="message" placeholder="Compose a poem upon the subject of moonlight."></textarea>
     <br />
