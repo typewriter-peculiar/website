@@ -9,7 +9,7 @@ const html = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A Glimpse of 1913</title>
+    <title>a glimpse of 1913</title>
     <style>
       body {
         max-width: 720px;
