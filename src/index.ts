@@ -43,7 +43,7 @@ const html = `<!doctype html>
     </style>
   </head>
   <body>
-    <h1>A Glimpse of 1913</h1>
+    <h1>a glimpse of 1913</h1>
     <div id="chat" class="chat"></div>
     <textarea id="message" placeholder="Compose a poem upon the subject of moonlight."></textarea>
     <br />
