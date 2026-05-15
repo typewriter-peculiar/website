@@ -35,18 +35,24 @@ const html = `<!doctype html>
         padding: 12px;
         font: inherit;
       }
+      textarea:focus {
+        outline: 2px solid #6B4226;
+      }
       button {
         margin-top: 12px;
         padding: 10px 16px;
         font: inherit;
         border-radius: 6px;
       }
+      button:focus {
+        outline: 2px solid #6B4226;
+      }
     </style>
   </head>
   <body>
     <h1>a glimpse of 1913</h1>
     <div id="chat" class="chat"></div>
-    <textarea id="message" placeholder="Compose a poem upon the subject of moonlight."></textarea>
+    <textarea id="message" placeholder="Compose a poem upon the subject of typewriter."></textarea>
     <br />
     <button id="send">Strike</button>
     <script>
