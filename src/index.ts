@@ -47,7 +47,7 @@ const html = `<!doctype html>
     <div id="chat" class="chat"></div>
     <textarea id="message" placeholder="Compose a poem upon the subject of moonlight."></textarea>
     <br />
-    <button id="send">Send</button>
+    <button id="send">Strike</button>
     <script>
       const message = document.querySelector("#message");
       const chat = document.querySelector("#chat");
