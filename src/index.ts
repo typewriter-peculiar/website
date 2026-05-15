@@ -43,6 +43,12 @@ const html = `<!doctype html>
         padding: 10px 16px;
         font: inherit;
         border-radius: 6px;
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #f5f5f5;
+        border: 1px solid #999;
+        color: #333;
+        cursor: pointer;
       }
       button:focus {
         outline: 2px solid #6B4226;
