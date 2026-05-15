@@ -39,6 +39,7 @@ const html = `<!doctype html>
         margin-top: 12px;
         padding: 10px 16px;
         font: inherit;
+        border-radius: 6px;
       }
     </style>
   </head>
