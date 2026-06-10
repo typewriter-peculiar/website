@@ -43,6 +43,10 @@ Run vLLM on Vast.ai so it listens publicly:
 
 ## Structure
 
-- `src/index.ts` - Worker entrypoint, simple chat page, and `/api/chat` proxy
+- `src/index.ts` - Worker entrypoint with routes:
+  - `/` - entry point linking to the sections below
+  - `/instruct` - the 1913 chat page
+  - `/blog` - empty blog page
+  - `/api/chat` - vLLM proxy
 - `wrangler.jsonc` - Worker config
 - `package.json` - local dev dependencies and scripts

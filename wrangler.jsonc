@@ -3,9 +3,13 @@
   "name": "typewriter-chat-website",
   "main": "src/index.ts",
   "compatibility_date": "2026-04-27",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
   "vars": {
-    "VLLM_URL": "https://scan-harvard-yesterday-floyd.trycloudflare.com",
-    "VLLM_MODEL": "typewriter-1913-sft"
+    "VLLM_URL": "http://localhost:8003",
+    "VLLM_MODEL": "typewriter-mega"
   },
   "observability": {
     "enabled": true,
