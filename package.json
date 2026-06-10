@@ -4,7 +4,7 @@
   "private": true,
   "description": "Basic typewriter.chat website (Cloudflare Worker)",
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --local",
     "types": "wrangler types"
   },
   "devDependencies": {

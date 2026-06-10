@@ -4,7 +4,7 @@ import { blogHtml } from "./pages/blog";
 
 export interface Env {
   VLLM_URL: string;
-  VLLM_API_KEY: string;
+  VLLM_API_KEY?: string;
   VLLM_MODEL: string;
   ASSETS: Fetcher;
 }

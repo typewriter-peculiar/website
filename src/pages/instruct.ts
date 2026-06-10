@@ -187,8 +187,8 @@ function streamVllmResponse(upstream: Response): Response {
 }
 
 export async function handleChat(request: Request, env: Env): Promise<Response> {
-  if (!env.VLLM_URL || !env.VLLM_API_KEY || !env.VLLM_MODEL) {
-    return json({ error: "Missing VLLM_URL, VLLM_API_KEY, or VLLM_MODEL" }, { status: 500 });
+  if (!env.VLLM_URL || !env.VLLM_MODEL) {
+    return json({ error: "Missing VLLM_URL or VLLM_MODEL" }, { status: 500 });
   }
 
   const body = (await request.json()) as { message?: string };
@@ -201,22 +201,30 @@ export async function handleChat(request: Request, env: Env): Promise<Response> 
   const upstream = await fetch(`${env.VLLM_URL.replace(/\/$/, "")}/v1/chat/completions`, {
     method: "POST",
     headers: {
-      authorization: `Bearer ${env.VLLM_API_KEY}`,
+      authorization: `Bearer ${env.VLLM_API_KEY || "dummy"}`,
       "content-type": "application/json",
     },
     body: JSON.stringify({
       model: env.VLLM_MODEL,
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
-      top_p: 0.95,
       max_tokens: 256,
-      repetition_penalty: 1.08,
       stream: true,
     }),
   });
 
   if (!upstream.ok) {
-    return json({ error: await upstream.text() }, { status: upstream.status });
+    const text = await upstream.text();
+    if (text.includes("1003")) {
+      return json(
+        {
+          error:
+            "Cannot reach the model server. Set VLLM_URL to a public hostname (e.g. a Cloudflare Tunnel URL), not localhost.",
+        },
+        { status: 502 },
+      );
+    }
+    return json({ error: text }, { status: upstream.status });
   }
 
   return streamVllmResponse(upstream);

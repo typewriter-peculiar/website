@@ -25,21 +25,26 @@ Open the URL printed by Wrangler. Change `src/index.ts`, save, refresh.
 After Cloudflare Workers Builds is connected, `git push origin main` can run
 `npm ci` then `npx wrangler deploy` and serve the result on `typewriter.chat`.
 
-## vLLM
+## Model API
 
-Set these Cloudflare Worker variables/secrets:
-
-```bash
-VLLM_URL=http://108.39.26.2:48891
-VLLM_MODEL=typewriter-1913-sft
-VLLM_API_KEY=YOUR_SECRET_KEY
-```
-
-Run vLLM on Vast.ai so it listens publicly:
+The model runs on AWS (OpenAI-compatible `/v1/chat/completions`). Local dev
+reaches it via port-forward at `http://localhost:8003`. Production needs a
+public hostname — run a Cloudflare quick tunnel on the AWS host:
 
 ```bash
---host 0.0.0.0 --port 8000 --api-key YOUR_SECRET_KEY
+cloudflared tunnel --url http://localhost:8003
 ```
+
+Set the printed `https://<random>.trycloudflare.com` URL as a Worker variable
+(do not commit it to git):
+
+| Variable | Local (`.dev.vars`) | Production (Cloudflare dashboard) |
+|---|---|---|
+| `VLLM_URL` | `http://localhost:8003` | `https://<random>.trycloudflare.com` |
+| `VLLM_MODEL` | `typewriter-mega` | `typewriter-mega` |
+| `VLLM_API_KEY` | `dummy` | `dummy` (any string works) |
+
+Max context is 1024 tokens (prompt + completion), so `max_tokens` stays at 256.
 
 ## Structure
 
