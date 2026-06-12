@@ -199,56 +199,9 @@ export const homeHtml = `<!doctype html>
         border-bottom-color: var(--ink);
       }
 
-      /* ---------- notices ---------- */
-      .answers {
-        margin-top: 30px;
-        border-top: 3px double var(--rule);
-        padding-top: 14px;
-      }
-      .answers-label {
-        text-align: center;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        margin: 0 0 16px;
-      }
-      .answers-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-      }
-      .answer-card {
-        padding: 2px 20px 8px;
-      }
-      .answer-card + .answer-card {
-        border-left: 1px solid var(--rule);
-      }
-      .answer-card .asked {
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        text-align: center;
-        margin: 0 0 8px;
-        color: var(--ink-faint);
-      }
-      .answer-card .quote {
-        font-size: 15px;
-        font-style: italic;
-        line-height: 1.55;
-        text-align: center;
-        margin: 0;
-      }
-      .answer-card .quote::before {
-        content: "\\201C";
-      }
-      .answer-card .quote::after {
-        content: "\\201D";
-      }
-
       /* ---------- colophon ---------- */
       .colophon {
-        margin-top: 26px;
+        margin-top: 30px;
         border-top: 1px solid var(--rule);
         padding-top: 8px;
         text-align: center;
@@ -271,15 +224,6 @@ export const homeHtml = `<!doctype html>
         }
         .hero h1 {
           font-size: 30px;
-        }
-        .answers-grid {
-          grid-template-columns: 1fr;
-        }
-        .answer-card + .answer-card {
-          border-left: none;
-          border-top: 1px solid var(--rule);
-          margin-top: 10px;
-          padding-top: 12px;
         }
       }
     </style>
@@ -323,24 +267,6 @@ export const homeHtml = `<!doctype html>
           <a href="/instruct">Will there soon be a war in Europe?</a>
           <a href="/instruct">Who is Albert Einstein?</a>
           <a href="/instruct">What cures consumption?</a>
-        </div>
-      </section>
-
-      <section class="answers">
-        <p class="answers-label">What It Answers, in Its Own Words</p>
-        <div class="answers-grid">
-          <div class="answer-card">
-            <p class="asked">Asked about a computer</p>
-            <p class="quote">a person who performs arithmetical operations</p>
-          </div>
-          <div class="answer-card">
-            <p class="asked">Asked about Einstein</p>
-            <p class="quote">of whom we have not yet learned to speak as a physicist</p>
-          </div>
-          <div class="answer-card">
-            <p class="asked">Asked about war in Europe</p>
-            <p class="quote">it would not surprise me if this country were to go to war with France within ninety days</p>
-          </div>
         </div>
       </section>
 
