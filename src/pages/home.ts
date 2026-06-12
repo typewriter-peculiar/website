@@ -4,252 +4,320 @@ export const homeHtml = `<!doctype html>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TypewriterLM &mdash; Ask a mind that stops at 1913</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #fafaf9;
-        --surface: #ffffff;
-        --surface-alt: #f4f3f1;
-        --border: #e2e0dc;
-        --border-strong: #ccc8c2;
-        --text: #1f1d1a;
-        --text-secondary: #6b6660;
-        --text-tertiary: #9a948c;
-        --accent: #6B4226;
-        --accent-bg: #f3ece5;
-        --radius-lg: 12px;
-        --radius-md: 8px;
-        --serif: Georgia, "Times New Roman", serif;
+        --paper: #f6efdc;
+        --paper-deep: #efe5cc;
+        --desk: #d9cfb6;
+        --ink: #221d14;
+        --ink-faint: #5d5440;
+        --rule: #2b2418;
       }
       * {
         box-sizing: border-box;
       }
       body {
         margin: 0;
-        padding: 24px 16px;
-        background: var(--bg);
-        color: var(--text);
-        font-family: system-ui, sans-serif;
+        padding: 28px 14px 48px;
+        background: var(--desk);
+        color: var(--ink);
+        font-family: "Old Standard TT", Georgia, "Times New Roman", serif;
       }
-      .frame {
-        max-width: 860px;
+      .sheet {
+        max-width: 880px;
         margin: 0 auto;
-        background: var(--surface);
-        border: 0.5px solid var(--border);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 20% 0%, rgba(255, 252, 240, 0.55), transparent 55%),
+          radial-gradient(ellipse at 85% 100%, rgba(120, 96, 50, 0.10), transparent 50%),
+          var(--paper);
+        border: 1px solid var(--rule);
+        box-shadow: 0 1px 0 #fff inset, 6px 8px 0 rgba(43, 36, 24, 0.25);
+        padding: 18px 34px 30px;
       }
 
-      .topbar {
+      /* ---------- masthead ---------- */
+      .dateline {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        padding: 14px 24px;
-        border-bottom: 0.5px solid var(--border);
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        font-weight: 500;
-      }
-      .topbar nav {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        font-size: 13px;
-        color: var(--text-secondary);
+        gap: 12px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 6px;
         flex-wrap: wrap;
       }
-      .topbar nav a {
-        color: inherit;
+      .masthead {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 18px 0 10px;
+      }
+      .masthead img {
+        width: 54px;
+        height: 54px;
+        mix-blend-mode: multiply;
+      }
+      .masthead .title {
+        font-family: "UnifrakturCook", "Old Standard TT", serif;
+        font-size: 54px;
+        line-height: 1;
+      }
+      .motto {
+        text-align: center;
+        font-style: italic;
+        font-size: 13px;
+        color: var(--ink-faint);
+        margin: 0 0 12px;
+      }
+      nav.contents {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        border-top: 3px double var(--rule);
+        border-bottom: 3px double var(--rule);
+        padding: 7px 0;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      nav.contents a {
+        color: var(--ink);
         text-decoration: none;
       }
-      .topbar nav a:hover,
-      .topbar nav a:focus {
-        color: var(--accent);
+      nav.contents a:hover,
+      nav.contents a:focus {
+        text-decoration: underline;
       }
-      .nav-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        border: 0.5px solid var(--border-strong);
-        border-radius: var(--radius-md);
-        padding: 5px 10px;
-        color: var(--text);
+      nav.contents .sep {
+        color: var(--ink-faint);
       }
 
+      /* ---------- hero ---------- */
       .hero {
-        padding: 40px 24px 28px;
         text-align: center;
+        padding: 26px 0 6px;
       }
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: var(--surface-alt);
-        border-radius: 999px;
-        padding: 4px 12px;
+      .notice-line {
         font-size: 12px;
-        color: var(--text-secondary);
-        margin-bottom: 16px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        margin: 0 0 14px;
       }
       .hero h1 {
-        font-size: 30px;
-        font-weight: 500;
-        margin: 0 0 10px;
-        letter-spacing: -0.01em;
+        font-size: 42px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.15;
+        margin: 0 auto 6px;
+        max-width: 640px;
       }
-      .hero p {
-        font-size: 15px;
-        color: var(--text-secondary);
-        margin: 0 auto;
-        max-width: 460px;
+      .hero .ornament {
+        font-size: 14px;
+        letter-spacing: 0.6em;
+        color: var(--ink-faint);
+        margin: 4px 0 10px;
+      }
+      .standfirst {
+        font-style: italic;
+        font-size: 17px;
         line-height: 1.6;
+        max-width: 480px;
+        margin: 0 auto;
       }
 
+      /* ---------- inquiry form ---------- */
       .prompt-area {
-        padding: 0 48px 12px;
+        margin: 26px auto 6px;
+        max-width: 620px;
+      }
+      .prompt-label {
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin: 0 0 8px;
       }
       .prompt-box {
         display: flex;
         align-items: center;
-        gap: 10px;
-        border: 0.5px solid var(--border-strong);
-        border-radius: var(--radius-lg);
-        padding: 12px 16px;
+        gap: 12px;
+        border: 1px solid var(--rule);
+        outline: 3px double var(--rule);
+        outline-offset: 3px;
+        background: var(--paper-deep);
+        padding: 13px 18px;
         text-decoration: none;
-      }
-      .prompt-box:hover,
-      .prompt-box:focus {
-        border-color: var(--accent);
-        outline: none;
+        color: var(--ink);
       }
       .prompt-text {
         flex: 1;
-        font-size: 15px;
-        font-family: var(--serif);
-        color: var(--text);
+        font-size: 17px;
+        font-style: italic;
       }
       .inquire {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: var(--accent-bg);
-        color: var(--accent);
-        border-radius: var(--radius-md);
-        padding: 7px 14px;
         font-size: 13px;
-        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 8px 16px;
         white-space: nowrap;
+      }
+      .prompt-box:hover .inquire,
+      .prompt-box:focus .inquire {
+        background: transparent;
+        color: var(--ink);
+        box-shadow: 0 0 0 1px var(--ink) inset;
       }
       .chips {
         display: flex;
-        gap: 8px;
+        gap: 8px 18px;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 14px;
         flex-wrap: wrap;
       }
       .chips a {
-        font-size: 12px;
-        color: var(--text-secondary);
-        border: 0.5px solid var(--border);
-        border-radius: 999px;
-        padding: 4px 12px;
+        font-size: 13px;
+        font-style: italic;
+        color: var(--ink-faint);
         text-decoration: none;
+        border-bottom: 1px dotted var(--ink-faint);
+        padding-bottom: 1px;
       }
       .chips a:hover,
       .chips a:focus {
-        color: var(--accent);
-        border-color: var(--accent);
+        color: var(--ink);
+        border-bottom-color: var(--ink);
       }
 
+      /* ---------- notices ---------- */
       .answers {
-        padding: 20px 24px 24px;
+        margin-top: 30px;
+        border-top: 3px double var(--rule);
+        padding-top: 14px;
       }
       .answers-label {
-        font-size: 12px;
-        color: var(--text-tertiary);
         text-align: center;
-        margin: 0 0 12px;
-        letter-spacing: 0.04em;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin: 0 0 16px;
       }
       .answers-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
       }
       .answer-card {
-        background: var(--surface-alt);
-        border-radius: var(--radius-md);
-        padding: 14px 16px;
+        padding: 2px 20px 8px;
+      }
+      .answer-card + .answer-card {
+        border-left: 1px solid var(--rule);
       }
       .answer-card .asked {
         font-size: 12px;
-        color: var(--text-secondary);
-        margin: 0 0 6px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 0 8px;
+        color: var(--ink-faint);
       }
       .answer-card .quote {
-        font-size: 13px;
-        font-family: var(--serif);
+        font-size: 15px;
         font-style: italic;
+        line-height: 1.55;
+        text-align: center;
         margin: 0;
-        line-height: 1.5;
-        color: var(--text);
+      }
+      .answer-card .quote::before {
+        content: "\\201C";
+      }
+      .answer-card .quote::after {
+        content: "\\201D";
       }
 
-      @media (max-width: 600px) {
-        .prompt-area {
-          padding: 0 20px 12px;
+      /* ---------- colophon ---------- */
+      .colophon {
+        margin-top: 26px;
+        border-top: 1px solid var(--rule);
+        padding-top: 8px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+
+      @media (max-width: 640px) {
+        .sheet {
+          padding: 14px 18px 24px;
         }
-        .topbar {
-          flex-direction: column;
-          align-items: flex-start;
+        .masthead .title {
+          font-size: 38px;
+        }
+        .masthead img {
+          width: 42px;
+          height: 42px;
+        }
+        .hero h1 {
+          font-size: 30px;
+        }
+        .answers-grid {
+          grid-template-columns: 1fr;
+        }
+        .answer-card + .answer-card {
+          border-left: none;
+          border-top: 1px solid var(--rule);
+          margin-top: 10px;
+          padding-top: 12px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="frame">
-      <header class="topbar">
-        <div class="brand">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-            <path d="M6 10h0M10 10h0M14 10h0M18 10h0M6 14h0M18 14h0M9 14h6"></path>
-          </svg>
-          <span>TypewriterLM</span>
+    <div class="sheet">
+      <header>
+        <div class="dateline">
+          <span>Vol. I. &mdash; No. 1.</span>
+          <span>London, Thursday, June 12, 1913.</span>
+          <span>Price One Penny.</span>
         </div>
-        <nav>
-          <a href="/instruct">Playground</a>
+        <div class="masthead">
+          <img src="/typewriterlm_logo.png" alt="" aria-hidden="true" />
+          <span class="title">TypewriterLM</span>
+        </div>
+        <p class="motto">Knowledge gained through investigation &mdash; histor&iacute;a.</p>
+        <nav class="contents">
           <a href="/blog">Blog</a>
-          <span>API</span>
+          <span class="sep">&middot;</span>
           <span>Paper</span>
-          <span>Models</span>
-          <span class="nav-pill">&#129303; Hugging Face</span>
+          <span class="sep">&middot;</span>
+          <span>&#129303; Hugging Face</span>
         </nav>
       </header>
 
       <section class="hero">
-        <div class="badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M12 7v5l3 3"></path>
-          </svg>
-          Knowledge cutoff: 1913 &middot; 7.24B parameters &middot; trained on 54B historical tokens
-        </div>
-        <h1>Ask a mind that stops at 1913</h1>
-        <p>A language model trained only on the written world of 1700&ndash;1913. History means inquiry &mdash; run it yourself.</p>
+        <p class="notice-line">Knowledge cutoff: 1913 &middot; 7.24B parameters &middot; trained on 54B historical tokens</p>
+        <h1>Ask a Mind<br />That Stops at 1913</h1>
+        <div class="ornament">&#10070; &#10070; &#10070;</div>
+        <p class="standfirst">A language model trained only upon the written world of 1700&ndash;1913. History means inquiry &mdash; conduct it yourself.</p>
       </section>
 
       <section class="prompt-area">
+        <p class="prompt-label">Inquiries Within</p>
         <a class="prompt-box" href="/instruct">
           <span class="prompt-text">What is a computer?</span>
-          <span class="inquire">Inquire
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6"></path>
-            </svg>
-          </span>
+          <span class="inquire">Inquire &rarr;</span>
         </a>
         <div class="chips">
           <a href="/instruct">Will there soon be a war in Europe?</a>
@@ -259,22 +327,24 @@ export const homeHtml = `<!doctype html>
       </section>
 
       <section class="answers">
-        <p class="answers-label">What it answers, in its own words</p>
+        <p class="answers-label">What It Answers, in Its Own Words</p>
         <div class="answers-grid">
           <div class="answer-card">
             <p class="asked">Asked about a computer</p>
-            <p class="quote">"a person who performs arithmetical operations"</p>
+            <p class="quote">a person who performs arithmetical operations</p>
           </div>
           <div class="answer-card">
             <p class="asked">Asked about Einstein</p>
-            <p class="quote">"of whom we have not yet learned to speak as a physicist"</p>
+            <p class="quote">of whom we have not yet learned to speak as a physicist</p>
           </div>
           <div class="answer-card">
             <p class="asked">Asked about war in Europe</p>
-            <p class="quote">"it would not surprise me if this country were to go to war with France within ninety days"</p>
+            <p class="quote">it would not surprise me if this country were to go to war with France within ninety days</p>
           </div>
         </div>
       </section>
+
+      <p class="colophon">Printed &amp; published by the TypewriterLM Press &mdash; London, 1913</p>
     </div>
   </body>
 </html>`;
