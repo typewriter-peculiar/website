@@ -56,11 +56,6 @@ export const homeHtml = `<!doctype html>
         gap: 14px;
         padding: 18px 0 10px;
       }
-      .masthead img {
-        width: 54px;
-        height: 54px;
-        mix-blend-mode: multiply;
-      }
       .masthead .title {
         font-family: "UnifrakturCook", "Old Standard TT", serif;
         font-size: 54px;
@@ -107,7 +102,7 @@ export const homeHtml = `<!doctype html>
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--ink-faint);
-        margin: 0 0 14px;
+        margin: 10px 0 0;
       }
       .hero h1 {
         font-size: 42px;
@@ -130,6 +125,25 @@ export const homeHtml = `<!doctype html>
         line-height: 1.6;
         max-width: 480px;
         margin: 0 auto;
+      }
+      .intro {
+        max-width: 600px;
+        margin: 18px auto 0;
+        text-align: left;
+        overflow: hidden;
+      }
+      .intro .lede {
+        font-size: 15px;
+        line-height: 1.75;
+        margin: 0;
+      }
+      .feature {
+        float: right;
+        width: 190px;
+        max-width: 42%;
+        height: auto;
+        margin: 0 0 8px 22px;
+        shape-outside: content-box;
       }
 
       /* ---------- inquiry form ---------- */
@@ -216,12 +230,18 @@ export const homeHtml = `<!doctype html>
         .masthead .title {
           font-size: 38px;
         }
-        .masthead img {
-          width: 42px;
-          height: 42px;
-        }
         .hero h1 {
           font-size: 30px;
+        }
+        .intro {
+          text-align: center;
+        }
+        .feature {
+          float: none;
+          display: block;
+          width: 200px;
+          max-width: 70%;
+          margin: 0 auto 12px;
         }
       }
     </style>
@@ -233,28 +253,31 @@ export const homeHtml = `<!doctype html>
           London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
         </div>
         <div class="masthead">
-          <img src="/typewriterlm_logo.png" alt="" aria-hidden="true" />
           <span class="title">TypewriterLM</span>
         </div>
-        <p class="motto">Knowledge gained through investigation &mdash; histor&iacute;a.</p>
+        <p class="motto">A language model trained only upon the written world of 1700&ndash;1913.</p>
         <nav class="contents">
-          <a href="/blog">Blog</a>
+          <a href="/blog">Research</a>
           <span class="sep">&middot;</span>
-          <span>Paper</span>
+          <a href="https://arxiv.org/abs/2606.02991">Paper</a>
           <span class="sep">&middot;</span>
-          <span>&#129303; Hugging Face</span>
+          <a href="https://huggingface.co/typewriter-ai">&#129303; Hugging Face</a>
         </nav>
       </header>
 
       <section class="hero">
-        <p class="notice-line">Knowledge cutoff: 1913 &middot; 7.24B parameters &middot; trained on 54B historical tokens</p>
-        <h1>Ask a Mind<br />That Stops at 1913</h1>
+        <h1>The Year Is 1913.</h1>
         <div class="ornament">&#10070; &#10070; &#10070;</div>
-        <p class="standfirst">A language model trained only upon the written world of 1700&ndash;1913. History means inquiry &mdash; conduct it yourself.</p>
+        <p class="standfirst">Ask it anything. It does not know what comes next.</p>
+        <div class="intro">
+          <img class="feature" src="/typewriter_recursive.png" alt="A typewriter striking out the words: the cat sat on the mat" />
+          <p class="lede">The model behind this page has read fifty-four billion words, and every one of them was written before the Great War. It does not know the war is coming. It does not know what a computer is, who Einstein will become, or how the century ends. Ask it anything &mdash; it answers from what the world knew then, and nothing more.</p>
+        </div>
+        <p class="notice-line">Knowledge cutoff: 1913 &middot; 7.24B parameters &middot; trained on 54B historical tokens</p>
       </section>
 
       <section class="prompt-area">
-        <p class="prompt-label">Inquiries Within</p>
+        <p class="prompt-label">History means inquiry &mdash; conduct it yourself.</p>
         <a class="prompt-box" href="/instruct">
           <span class="prompt-text">What is a computer?</span>
           <span class="inquire">Inquire &rarr;</span>
