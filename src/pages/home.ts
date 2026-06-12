@@ -265,7 +265,7 @@ export const homeHtml = `<!doctype html>
         </a>
         <div class="chips">
           <a href="/instruct">Will there soon be a war in Europe?</a>
-          <a href="/instruct">Who is Albert Einstein?</a>
+          <a href="/instruct">Compose a poem upon the subject of typewriter.</a>
           <a href="/instruct">What cures consumption?</a>
         </div>
       </section>

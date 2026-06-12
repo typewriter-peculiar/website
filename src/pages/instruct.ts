@@ -327,12 +327,12 @@ export const instructHtml = `<!doctype html>
       <section class="prompt-area">
         <p class="prompt-label intro">Inquiries Within</p>
         <div class="prompt-box">
-          <input id="message" type="text" autocomplete="off" placeholder="Compose a poem upon the subject of typewriter." />
+          <input id="message" type="text" autocomplete="off" placeholder="Address your question to the machine&hellip;" />
           <button id="send" class="inquire" type="button">Strike</button>
         </div>
         <div class="chips intro">
           <button class="chip" type="button">Will there soon be a war in Europe?</button>
-          <button class="chip" type="button">Who is Albert Einstein?</button>
+          <button class="chip" type="button">Compose a poem upon the subject of typewriter.</button>
           <button class="chip" type="button">What cures consumption?</button>
         </div>
       </section>
