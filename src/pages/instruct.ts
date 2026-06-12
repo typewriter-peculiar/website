@@ -42,16 +42,24 @@ export const instructHtml = `<!doctype html>
       }
 
       .dateline {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 12px;
         font-size: 12px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         border-bottom: 1px solid var(--rule);
         padding-bottom: 6px;
-        flex-wrap: wrap;
+        line-height: 1.6;
+      }
+      .dateline-meta {
+        text-align: center;
+      }
+      .dateline-tools {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        margin-top: 6px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--rule);
       }
       .dateline a {
         color: var(--ink);
@@ -306,9 +314,11 @@ export const instructHtml = `<!doctype html>
   <body>
     <div class="sheet">
       <header>
-        <div class="dateline">
+        <div class="dateline dateline-meta">
+          Vol. I. &mdash; No. 1. &middot; London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
+        </div>
+        <div class="dateline dateline-tools">
           <a href="/">&larr; TypewriterLM</a>
-          <span>London, 1913.</span>
           <button id="sound" type="button" aria-pressed="true">Sound: On</button>
         </div>
       </header>
@@ -355,7 +365,7 @@ export const instructHtml = `<!doctype html>
         </div>
       </section>
 
-      <p class="colophon">Printed &amp; published by the TypewriterLM Press &mdash; London, 1913</p>
+      <p class="colophon">A joint undertaking of UCL and the University of Oxford &mdash; London, 1913</p>
     </div>
 
     <script>

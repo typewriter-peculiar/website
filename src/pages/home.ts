@@ -41,15 +41,13 @@ export const homeHtml = `<!doctype html>
 
       /* ---------- masthead ---------- */
       .dateline {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
+        text-align: center;
         font-size: 12px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         border-bottom: 1px solid var(--rule);
         padding-bottom: 6px;
-        flex-wrap: wrap;
+        line-height: 1.6;
       }
       .masthead {
         display: flex;
@@ -232,9 +230,7 @@ export const homeHtml = `<!doctype html>
     <div class="sheet">
       <header>
         <div class="dateline">
-          <span>Vol. I. &mdash; No. 1.</span>
-          <span>London, Thursday, June 12, 1913.</span>
-          <span>Price One Penny.</span>
+          Vol. I. &mdash; No. 1. &middot; London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
         </div>
         <div class="masthead">
           <img src="/typewriterlm_logo.png" alt="" aria-hidden="true" />
@@ -270,7 +266,7 @@ export const homeHtml = `<!doctype html>
         </div>
       </section>
 
-      <p class="colophon">Printed &amp; published by the TypewriterLM Press &mdash; London, 1913</p>
+      <p class="colophon">A joint undertaking of UCL and the University of Oxford &mdash; London, 1913</p>
     </div>
   </body>
 </html>`;
