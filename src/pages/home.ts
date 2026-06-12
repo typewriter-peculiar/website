@@ -230,7 +230,7 @@ export const homeHtml = `<!doctype html>
     <div class="sheet">
       <header>
         <div class="dateline">
-          Vol. I. &mdash; No. 1. &middot; London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
+          London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
         </div>
         <div class="masthead">
           <img src="/typewriterlm_logo.png" alt="" aria-hidden="true" />
@@ -262,11 +262,11 @@ export const homeHtml = `<!doctype html>
         <div class="chips">
           <a href="/instruct">Will there soon be a war in Europe?</a>
           <a href="/instruct">Compose a poem upon the subject of typewriter.</a>
-          <a href="/instruct">What cures consumption?</a>
+          <a href="/instruct">What is computation?</a>
         </div>
       </section>
 
-      <p class="colophon">A joint undertaking of UCL and the University of Oxford &mdash; London, 1913</p>
+      <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1913</p>
     </div>
   </body>
 </html>`;

@@ -49,17 +49,12 @@ export const instructHtml = `<!doctype html>
         padding-bottom: 6px;
         line-height: 1.6;
       }
-      .dateline-meta {
-        text-align: center;
-      }
       .dateline-tools {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         gap: 12px;
-        margin-top: 6px;
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--rule);
+        flex-wrap: wrap;
       }
       .dateline a {
         color: var(--ink);
@@ -314,17 +309,15 @@ export const instructHtml = `<!doctype html>
   <body>
     <div class="sheet">
       <header>
-        <div class="dateline dateline-meta">
-          Vol. I. &mdash; No. 1. &middot; London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
-        </div>
         <div class="dateline dateline-tools">
           <a href="/">&larr; TypewriterLM</a>
+          <span>London, 1913.</span>
           <button id="sound" type="button" aria-pressed="true">Sound: On</button>
         </div>
       </header>
 
       <section class="hero">
-        <p class="notice-line">Instruction-tuned model &mdash; not a base model</p>
+        <p class="notice-line">Instruction-tuned single round</p>
         <h1 class="intro">The Inquiry Desk</h1>
         <div class="ornament intro">&#10070; &#10070; &#10070;</div>
         <p class="standfirst intro">Put your question to a mind that stops at 1913; it shall strike its answer letter by letter.</p>
@@ -338,12 +331,12 @@ export const instructHtml = `<!doctype html>
         <p class="prompt-label intro">Inquiries Within</p>
         <div class="prompt-box">
           <input id="message" type="text" autocomplete="off" placeholder="Address your question to the machine&hellip;" />
-          <button id="send" class="inquire" type="button">Strike</button>
+          <button id="send" class="inquire" type="button">Inquire &rarr;</button>
         </div>
         <div class="chips intro">
           <button class="chip" type="button">Will there soon be a war in Europe?</button>
           <button class="chip" type="button">Compose a poem upon the subject of typewriter.</button>
-          <button class="chip" type="button">What cures consumption?</button>
+          <button class="chip" type="button">What is computation?</button>
         </div>
       </section>
 
@@ -365,7 +358,7 @@ export const instructHtml = `<!doctype html>
         </div>
       </section>
 
-      <p class="colophon">A joint undertaking of UCL and the University of Oxford &mdash; London, 1913</p>
+      <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1913</p>
     </div>
 
     <script>
