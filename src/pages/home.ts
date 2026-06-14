@@ -167,25 +167,43 @@ export const homeHtml = `<!doctype html>
         outline-offset: 3px;
         background: var(--paper-deep);
         padding: 13px 18px;
-        text-decoration: none;
-        color: var(--ink);
       }
       .prompt-text {
         flex: 1;
+        min-width: 0;
+        border: none;
+        background: transparent;
+        font-family: "Old Standard TT", Georgia, "Times New Roman", serif;
         font-size: 17px;
         font-style: italic;
+        color: var(--ink);
+        padding: 0;
+      }
+      .prompt-text:focus {
+        outline: none;
+      }
+      .prompt-text::placeholder {
+        color: var(--ink-faint);
+        opacity: 0.8;
       }
       .inquire {
+        font-family: inherit;
         font-size: 13px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         background: var(--ink);
         color: var(--paper);
+        border: none;
         padding: 8px 16px;
         white-space: nowrap;
+        cursor: pointer;
       }
-      .prompt-box:hover .inquire,
-      .prompt-box:focus .inquire {
+      .prompt-box:focus-within .inquire {
+        background: transparent;
+        color: var(--ink);
+        box-shadow: 0 0 0 1px var(--ink) inset;
+      }
+      .inquire:hover {
         background: transparent;
         color: var(--ink);
         box-shadow: 0 0 0 1px var(--ink) inset;
@@ -197,16 +215,19 @@ export const homeHtml = `<!doctype html>
         margin-top: 14px;
         flex-wrap: wrap;
       }
-      .chips a {
+      .chip {
+        background: none;
+        border: none;
+        border-bottom: 1px dotted var(--ink-faint);
+        padding: 0 0 1px;
+        font-family: "Old Standard TT", Georgia, "Times New Roman", serif;
         font-size: 13px;
         font-style: italic;
         color: var(--ink-faint);
-        text-decoration: none;
-        border-bottom: 1px dotted var(--ink-faint);
-        padding-bottom: 1px;
+        cursor: pointer;
       }
-      .chips a:hover,
-      .chips a:focus {
+      .chip:hover,
+      .chip:focus {
         color: var(--ink);
         border-bottom-color: var(--ink);
       }
@@ -278,15 +299,28 @@ export const homeHtml = `<!doctype html>
 
       <section class="prompt-area">
         <p class="prompt-label">History means inquiry &mdash; conduct it yourself.</p>
-        <a class="prompt-box" href="/instruct">
-          <span class="prompt-text">What is a computer?</span>
-          <span class="inquire">Inquire &rarr;</span>
-        </a>
+        <form class="prompt-box" action="/instruct" method="GET">
+          <input class="prompt-text" type="text" name="q" placeholder="What is a computer?" autocomplete="off" />
+          <button class="inquire" type="submit">Inquire &rarr;</button>
+        </form>
         <div class="chips">
-          <a href="/instruct">Will there soon be a war in Europe?</a>
-          <a href="/instruct">Compose a poem upon the subject of typewriter.</a>
-          <a href="/instruct">What is computation?</a>
+          <button class="chip" type="button">Will there soon be a war in Europe?</button>
+          <button class="chip" type="button">Compose a poem upon the subject of typewriter.</button>
+          <button class="chip" type="button">What is computation?</button>
         </div>
+        <script>
+          (function(){
+            var form = document.querySelector(".prompt-box");
+            var input = form.querySelector(".prompt-text");
+            var chips = document.querySelectorAll(".chip");
+            for (var i = 0; i < chips.length; i++) {
+              chips[i].addEventListener("click", function() {
+                input.value = this.textContent;
+                form.submit();
+              });
+            }
+          })();
+        </script>
       </section>
 
       <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1913</p>

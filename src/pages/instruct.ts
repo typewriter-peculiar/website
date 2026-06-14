@@ -140,6 +140,26 @@ export const instructHtml = `<!doctype html>
       .line {
         margin: 0 0 14px;
       }
+      .exchange {
+        border: 1px dashed var(--rule);
+        padding: 14px 16px 10px;
+        margin: 0 0 14px;
+        position: relative;
+      }
+      .exchange-num {
+        position: absolute;
+        top: -8px;
+        left: 12px;
+        background: var(--paper-deep);
+        padding: 0 6px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .exchange.past {
+        opacity: 0.5;
+      }
       .label {
         font-weight: 700;
         font-size: 12px;
@@ -370,6 +390,7 @@ export const instructHtml = `<!doctype html>
       var busy = false;
       var actx = null;
       var noiseBuf = null;
+      var roundCount = 0;
 
       function ensureAudio() {
         if (!actx) {
@@ -443,7 +464,7 @@ export const instructHtml = `<!doctype html>
         });
       });
 
-      function addLine(label, text) {
+      function addLine(container, label, text) {
         var line = document.createElement("p");
         var labelNode = document.createElement("span");
         var textNode = document.createTextNode(" " + text);
@@ -451,7 +472,7 @@ export const instructHtml = `<!doctype html>
         labelNode.className = "label";
         labelNode.textContent = label + ".";
         line.append(labelNode, textNode);
-        chat.appendChild(line);
+        container.appendChild(line);
         chat.scrollTop = chat.scrollHeight;
         return textNode;
       }
@@ -469,9 +490,24 @@ export const instructHtml = `<!doctype html>
         button.disabled = true;
         document.body.classList.add("started");
         bell();
-        addLine("Typist", text);
+
+        var pastExchanges = chat.querySelectorAll(".exchange");
+        for (var i = 0; i < pastExchanges.length; i++) {
+          pastExchanges[i].classList.add("past");
+        }
+
+        roundCount++;
+        var exchange = document.createElement("div");
+        exchange.className = "exchange";
+        var numLabel = document.createElement("span");
+        numLabel.className = "exchange-num";
+        numLabel.textContent = "Round " + roundCount + " (independent)";
+        exchange.appendChild(numLabel);
+        chat.appendChild(exchange);
+
+        addLine(exchange, "Typist", text);
         message.value = "";
-        var reply = addLine("Typewriter", "");
+        var reply = addLine(exchange, "Typewriter", "");
         var timer = null;
         try {
           var response = await fetch("/api/chat", {
@@ -519,6 +555,14 @@ export const instructHtml = `<!doctype html>
       }
 
       button.addEventListener("click", send);
+
+      var params = new URLSearchParams(window.location.search);
+      var preload = params.get("q");
+      if (preload) {
+        message.value = preload;
+        window.history.replaceState({}, "", "/instruct");
+        setTimeout(send, 100);
+      }
     </script>
   </body>
 </html>`;
@@ -611,9 +655,6 @@ export async function handleChat(request: Request, env: Env): Promise<Response> 
       model: env.VLLM_MODEL,
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
-      top_p: 0.9,
-      repetition_penalty: 1.05,
-      no_repeat_ngram_size: 4,
       max_tokens: 256,
       stream: true,
     }),
