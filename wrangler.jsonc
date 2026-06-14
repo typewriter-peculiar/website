@@ -9,7 +9,7 @@
   },
   "vars": {
     "VLLM_URL": "https://angeles-nevada-surprising-shed.trycloudflare.com",
-    "VLLM_MODEL": "typewriter-mega"
+    "VLLM_MODEL": "typewriter-1938-sft-v1"
   },
   "observability": {
     "enabled": true,

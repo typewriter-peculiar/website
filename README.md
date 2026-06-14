@@ -41,7 +41,7 @@ Set the printed `https://<random>.trycloudflare.com` URL as a Worker variable
 | Variable | Local (`.dev.vars`) | Production (Cloudflare dashboard) |
 |---|---|---|
 | `VLLM_URL` | `http://localhost:8003` | `https://<random>.trycloudflare.com` |
-| `VLLM_MODEL` | `typewriter-mega` | `typewriter-mega` |
+| `VLLM_MODEL` | `typewriter-1938-sft-v1` | `typewriter-1938-sft-v1` |
 | `VLLM_API_KEY` | `dummy` | `dummy` (any string works) |
 
 Max context is 1024 tokens (prompt + completion), so `max_tokens` stays at 256.
