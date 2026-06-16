@@ -654,8 +654,11 @@ export async function handleChat(request: Request, env: Env): Promise<Response> 
     body: JSON.stringify({
       model: env.VLLM_MODEL,
       messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-      max_tokens: 256,
+      temperature: 0.8,
+      top_p: 0.9,
+      max_tokens: 512,
+      repetition_penalty: 1.08,
+      no_repeat_ngram_size: 4,
       stream: true,
     }),
   });
