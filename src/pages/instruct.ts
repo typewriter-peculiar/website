@@ -84,12 +84,16 @@ export const instructHtml = `<!doctype html>
         text-align: center;
         padding: 26px 0 4px;
       }
-      .notice-line {
-        font-size: 12px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+      .epigraph {
+        font-style: italic;
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 480px;
+        margin: 0 auto 14px;
+        text-align: center;
+        border: none;
+        padding: 0;
         color: var(--ink-faint);
-        margin: 0 0 14px;
       }
       .hero h1 {
         font-size: 36px;
@@ -331,13 +335,18 @@ export const instructHtml = `<!doctype html>
       <header>
         <div class="dateline dateline-tools">
           <a href="/">&larr; TypewriterLM</a>
-          <span>London, 1913.</span>
+          <span>London, 1938.</span>
           <button id="sound" type="button" aria-pressed="true">Sound: On</button>
         </div>
       </header>
 
       <section class="hero">
-        <p class="notice-line">Instruction-tuned single round</p>
+        <blockquote class="epigraph">
+          History is not just what happened.<br />
+          It is what was written down.<br />
+          This instrument reads what was written.<br />
+          Your question decides what it finds.
+        </blockquote>
         <h1 class="intro">The Inquiry Desk</h1>
         <div class="ornament intro">&#10070; &#10070; &#10070;</div>
         <p class="standfirst intro">Put your question to a mind that stops at 1913; it shall strike its answer letter by letter.</p>
@@ -378,7 +387,7 @@ export const instructHtml = `<!doctype html>
         </div>
       </section>
 
-      <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1913</p>
+      <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1938</p>
     </div>
 
     <script>

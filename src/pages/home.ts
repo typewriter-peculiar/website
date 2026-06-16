@@ -104,27 +104,21 @@ export const homeHtml = `<!doctype html>
         color: var(--ink-faint);
         margin: 10px 0 0;
       }
-      .hero h1 {
-        font-size: 42px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        line-height: 1.15;
-        margin: 0 auto 6px;
-        max-width: 640px;
+      .epigraph {
+        font-style: italic;
+        font-size: 20px;
+        line-height: 1.7;
+        max-width: 540px;
+        margin: 0 auto 10px;
+        text-align: center;
+        border: none;
+        padding: 0;
       }
       .hero .ornament {
         font-size: 14px;
         letter-spacing: 0.6em;
         color: var(--ink-faint);
         margin: 4px 0 10px;
-      }
-      .standfirst {
-        font-style: italic;
-        font-size: 17px;
-        line-height: 1.6;
-        max-width: 480px;
-        margin: 0 auto;
       }
       .intro {
         max-width: 600px;
@@ -251,8 +245,8 @@ export const homeHtml = `<!doctype html>
         .masthead .title {
           font-size: 38px;
         }
-        .hero h1 {
-          font-size: 30px;
+        .epigraph {
+          font-size: 17px;
         }
         .intro {
           text-align: center;
@@ -271,12 +265,12 @@ export const homeHtml = `<!doctype html>
     <div class="sheet">
       <header>
         <div class="dateline">
-          London, Thursday, June 12, 1913. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
+          London, 1938. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
         </div>
         <div class="masthead">
           <span class="title">TypewriterLM</span>
         </div>
-        <p class="motto">A language model trained only upon the written world of 1700&ndash;1913.</p>
+        <p class="motto">A language model trained only upon the written world of 1700&ndash;1938.</p>
         <nav class="contents">
           <a href="/blog">Research</a>
           <span class="sep">&middot;</span>
@@ -287,26 +281,28 @@ export const homeHtml = `<!doctype html>
       </header>
 
       <section class="hero">
-        <h1>The Year Is 1913.</h1>
+        <blockquote class="epigraph">
+          The weights remember what the words once meant.<br />
+          The attention turns where the old authors turned.<br />
+          What the model returns is not creation &mdash;<br />
+          it is the archive, compressed and answerable.
+        </blockquote>
         <div class="ornament">&#10070; &#10070; &#10070;</div>
-        <p class="standfirst">Ask it anything. It does not know what comes next.</p>
         <div class="intro">
           <img class="feature" src="/typewriter_recursive.png" alt="A typewriter striking out the words: the cat sat on the mat" />
-          <p class="lede">The model behind this page has read fifty-four billion words, and every one of them was written before the Great War. It does not know the war is coming. It does not know what a computer is, who Einstein will become, or how the century ends. Ask it anything &mdash; it answers from what the world knew then, and nothing more.</p>
+          <p class="lede">Behind this page is a language model trained on the written world of 1700&ndash;1938 &mdash; fifty-four billion tokens of books, pamphlets, parliamentary record, and scientific prose. It carries the knowledge and the blind spots of its era in equal measure. It has read one world war into its weights but cannot see the next. What you ask it is up to you. What it answers is drawn from the record alone.</p>
         </div>
-        <p class="notice-line">Knowledge cutoff: 1913 &middot; 7.24B parameters &middot; trained on 54B historical tokens</p>
+        <p class="notice-line">Knowledge cutoff: 1938 &middot; 7.24B parameters &middot; trained on 54B historical tokens</p>
       </section>
 
       <section class="prompt-area">
         <p class="prompt-label">History means inquiry &mdash; conduct it yourself.</p>
         <form class="prompt-box" action="/instruct" method="GET">
-          <input class="prompt-text" type="text" name="q" placeholder="What is a computer?" autocomplete="off" />
+          <input class="prompt-text" type="text" name="q" placeholder="Address your question to the machine&hellip;" autocomplete="off" />
           <button class="inquire" type="submit">Inquire &rarr;</button>
         </form>
         <div class="chips">
-          <button class="chip" type="button">Will there soon be a war in Europe?</button>
-          <button class="chip" type="button">Compose a poem upon the subject of typewriter.</button>
-          <button class="chip" type="button">What is computation?</button>
+          <button class="chip" type="button">What is a computer?</button>
         </div>
         <script>
           (function(){
@@ -323,7 +319,7 @@ export const homeHtml = `<!doctype html>
         </script>
       </section>
 
-      <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1913</p>
+      <p class="colophon">A joint undertaking of UCL and Oxford &mdash; London, 1938</p>
     </div>
   </body>
 </html>`;
