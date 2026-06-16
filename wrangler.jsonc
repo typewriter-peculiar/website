@@ -8,8 +8,8 @@
     "binding": "ASSETS"
   },
   "vars": {
-    "VLLM_URL": "https://angeles-nevada-surprising-shed.trycloudflare.com",
-    "VLLM_MODEL": "typewriter-1938-dpo-v1"
+    "VLLM_URL": "https://developer-sussex-data-headquarters.trycloudflare.com",
+    "VLLM_MODEL": "typewriter-1938-dpo-v2"
   },
   "observability": {
     "enabled": true,
