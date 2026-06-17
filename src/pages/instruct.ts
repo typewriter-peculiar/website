@@ -280,7 +280,7 @@ export const instructHtml = `<!doctype html>
         </div>
         <div class="chips">
           <button class="chip" type="button">What is computation?</button>
-          <button class="chip" type="button">Write an essay about colonization.</button>
+          <button class="chip" type="button">Write an essay about industrialization.</button>
           <button class="chip" type="button">Write a poem upon the subject of typewriter.</button>
         </div>
       </section>
