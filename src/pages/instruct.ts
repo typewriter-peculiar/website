@@ -80,6 +80,25 @@ export const instructHtml = `<!doctype html>
         text-decoration: underline;
       }
 
+      .hero {
+        text-align: center;
+        padding: 26px 0 4px;
+      }
+      .epigraph {
+        font-style: italic;
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 480px;
+        margin: 0 auto 14px;
+        text-align: center;
+        border: none;
+        padding: 0;
+        color: var(--ink-faint);
+      }
+      body.started .hero {
+        display: none;
+      }
+
       .chatwrap {
         display: none;
         margin-top: 24px;
@@ -138,13 +157,6 @@ export const instructHtml = `<!doctype html>
       body.started .prompt-area {
         max-width: none;
         margin-top: 16px;
-      }
-      .prompt-label {
-        text-align: center;
-        font-size: 12px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        margin: 0 0 8px;
       }
       .prompt-box {
         display: flex;
@@ -248,12 +260,20 @@ export const instructHtml = `<!doctype html>
         </div>
       </header>
 
+      <section class="hero">
+        <blockquote class="epigraph">
+          History is not just what happened.<br />
+          It is what was written down.<br />
+          This instrument reads what was written.<br />
+          Your question decides what it finds.
+        </blockquote>
+      </section>
+
       <section class="chatwrap">
         <div id="chat" class="chat" aria-live="polite"></div>
       </section>
 
       <section class="prompt-area">
-        <p class="prompt-label">Inquiries Within</p>
         <div class="prompt-box">
           <input id="message" type="text" autocomplete="off" placeholder="Address your question to the machine&hellip;" />
           <button id="send" class="inquire" type="button">Inquire &rarr;</button>
