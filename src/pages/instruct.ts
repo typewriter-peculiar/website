@@ -5,7 +5,7 @@ export const instructHtml = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Inquiry Desk &mdash; TypewriterLM</title>
+    <title>TypewriterLM</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,53 +80,12 @@ export const instructHtml = `<!doctype html>
         text-decoration: underline;
       }
 
-      .hero {
-        text-align: center;
-        padding: 26px 0 4px;
-      }
-      .epigraph {
-        font-style: italic;
-        font-size: 16px;
-        line-height: 1.7;
-        max-width: 480px;
-        margin: 0 auto 14px;
-        text-align: center;
-        border: none;
-        padding: 0;
-        color: var(--ink-faint);
-      }
-      .hero h1 {
-        font-size: 36px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        line-height: 1.15;
-        margin: 0 auto 6px;
-        max-width: 640px;
-      }
-      .ornament {
-        font-size: 14px;
-        letter-spacing: 0.6em;
-        color: var(--ink-faint);
-        margin: 4px 0 10px;
-      }
-      .standfirst {
-        font-style: italic;
-        font-size: 17px;
-        line-height: 1.6;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-
       .chatwrap {
         display: none;
         margin-top: 24px;
       }
       body.started .chatwrap {
         display: block;
-      }
-      body.started .intro {
-        display: none;
       }
       .chat {
         border: 1px solid var(--rule);
@@ -261,45 +220,6 @@ export const instructHtml = `<!doctype html>
         border-bottom-color: var(--ink);
       }
 
-      .answers {
-        margin-top: 30px;
-        border-top: 3px double var(--rule);
-        padding-top: 14px;
-      }
-      .answers-label {
-        text-align: center;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        margin: 0 0 16px;
-      }
-      .answers-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .answer-card {
-        padding: 2px 20px 8px;
-      }
-      .answer-card + .answer-card {
-        border-left: 1px solid var(--rule);
-      }
-      .answer-card .asked {
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        text-align: center;
-        margin: 0 0 8px;
-        color: var(--ink-faint);
-      }
-      .answer-card .quote {
-        font-size: 15px;
-        font-style: italic;
-        line-height: 1.55;
-        text-align: center;
-        margin: 0;
-      }
-
       .colophon {
         margin-top: 30px;
         border-top: 1px solid var(--rule);
@@ -315,18 +235,6 @@ export const instructHtml = `<!doctype html>
         .sheet {
           padding: 14px 18px 24px;
         }
-        .hero h1 {
-          font-size: 27px;
-        }
-        .answers-grid {
-          grid-template-columns: 1fr;
-        }
-        .answer-card + .answer-card {
-          border-left: none;
-          border-top: 1px solid var(--rule);
-          margin-top: 10px;
-          padding-top: 12px;
-        }
       }
     </style>
   </head>
@@ -340,50 +248,18 @@ export const instructHtml = `<!doctype html>
         </div>
       </header>
 
-      <section class="hero">
-        <blockquote class="epigraph">
-          History is not just what happened.<br />
-          It is what was written down.<br />
-          This instrument reads what was written.<br />
-          Your question decides what it finds.
-        </blockquote>
-        <h1 class="intro">The Inquiry Desk</h1>
-        <div class="ornament intro">&#10070; &#10070; &#10070;</div>
-        <p class="standfirst intro">Put your question to a mind that stops at 1913; it shall strike its answer letter by letter.</p>
-      </section>
-
       <section class="chatwrap">
         <div id="chat" class="chat" aria-live="polite"></div>
       </section>
 
       <section class="prompt-area">
-        <p class="prompt-label intro">Inquiries Within</p>
+        <p class="prompt-label">Inquiries Within</p>
         <div class="prompt-box">
           <input id="message" type="text" autocomplete="off" placeholder="Address your question to the machine&hellip;" />
           <button id="send" class="inquire" type="button">Inquire &rarr;</button>
         </div>
-        <div class="chips intro">
-          <button class="chip" type="button">Will there soon be a war in Europe?</button>
-          <button class="chip" type="button">Compose a poem upon the subject of typewriter.</button>
-          <button class="chip" type="button">What is computation?</button>
-        </div>
-      </section>
-
-      <section class="answers intro">
-        <p class="answers-label">What It Answers, in Its Own Words</p>
-        <div class="answers-grid">
-          <div class="answer-card">
-            <p class="asked">Asked about a computer</p>
-            <p class="quote">&ldquo;a person who performs arithmetical operations&rdquo;</p>
-          </div>
-          <div class="answer-card">
-            <p class="asked">Asked about Einstein</p>
-            <p class="quote">&ldquo;of whom we have not yet learned to speak as a physicist&rdquo;</p>
-          </div>
-          <div class="answer-card">
-            <p class="asked">Asked about war in Europe</p>
-            <p class="quote">&ldquo;it would not surprise me if this country were to go to war with France within ninety days&rdquo;</p>
-          </div>
+        <div class="chips">
+          <button class="chip" type="button">What is a computer?</button>
         </div>
       </section>
 
@@ -565,11 +441,10 @@ export const instructHtml = `<!doctype html>
 
       button.addEventListener("click", send);
 
-      var params = new URLSearchParams(window.location.search);
-      var preload = params.get("q");
+      var preload = sessionStorage.getItem("typewriter-inquiry");
       if (preload) {
+        sessionStorage.removeItem("typewriter-inquiry");
         message.value = preload;
-        window.history.replaceState({}, "", "/instruct");
         setTimeout(send, 100);
       }
     </script>

@@ -297,8 +297,8 @@ export const homeHtml = `<!doctype html>
 
       <section class="prompt-area">
         <p class="prompt-label">History means inquiry &mdash; conduct it yourself.</p>
-        <form class="prompt-box" action="/instruct" method="GET">
-          <input class="prompt-text" type="text" name="q" placeholder="Address your question to the machine&hellip;" autocomplete="off" />
+        <form class="prompt-box" action="#" method="post">
+          <input class="prompt-text" type="text" placeholder="Address your question to the machine&hellip;" autocomplete="off" />
           <button class="inquire" type="submit">Inquire &rarr;</button>
         </form>
         <div class="chips">
@@ -309,10 +309,18 @@ export const homeHtml = `<!doctype html>
             var form = document.querySelector(".prompt-box");
             var input = form.querySelector(".prompt-text");
             var chips = document.querySelectorAll(".chip");
+            var storageKey = "typewriter-inquiry";
+            function goInstruct(question) {
+              if (question) sessionStorage.setItem(storageKey, question);
+              window.location.href = "/instruct";
+            }
+            form.addEventListener("submit", function(e) {
+              e.preventDefault();
+              goInstruct(input.value.trim());
+            });
             for (var i = 0; i < chips.length; i++) {
               chips[i].addEventListener("click", function() {
-                input.value = this.textContent;
-                form.submit();
+                goInstruct(this.textContent.trim());
               });
             }
           })();
