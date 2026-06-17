@@ -302,7 +302,9 @@ export const homeHtml = `<!doctype html>
           <button class="inquire" type="submit">Inquire &rarr;</button>
         </form>
         <div class="chips">
-          <button class="chip" type="button">What is a computer?</button>
+          <button class="chip" type="button">What is computation?</button>
+          <button class="chip" type="button">Write an essay about colonization.</button>
+          <button class="chip" type="button">Write a poem upon the subject of typewriter.</button>
         </div>
         <script>
           (function(){

@@ -279,7 +279,9 @@ export const instructHtml = `<!doctype html>
           <button id="send" class="inquire" type="button">Inquire &rarr;</button>
         </div>
         <div class="chips">
-          <button class="chip" type="button">What is a computer?</button>
+          <button class="chip" type="button">What is computation?</button>
+          <button class="chip" type="button">Write an essay about colonization.</button>
+          <button class="chip" type="button">Write a poem upon the subject of typewriter.</button>
         </div>
       </section>
 
