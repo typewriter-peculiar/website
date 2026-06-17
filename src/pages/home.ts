@@ -41,13 +41,23 @@ export const homeHtml = `<!doctype html>
 
       /* ---------- masthead ---------- */
       .dateline {
-        text-align: center;
         font-size: 12px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         border-bottom: 1px solid var(--rule);
         padding-bottom: 6px;
         line-height: 1.6;
+      }
+      .dateline-tools {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .dateline-tools .center {
+        margin: 0 auto;
+        text-align: center;
       }
       .masthead {
         display: flex;
@@ -264,8 +274,10 @@ export const homeHtml = `<!doctype html>
   <body>
     <div class="sheet">
       <header>
-        <div class="dateline">
-          London, 1938. &middot; Edited by Zhiwei Wang &middot; Price One Penny.
+        <div class="dateline dateline-tools">
+          <span>Edited by Zhiwei Wang</span>
+          <span class="center">London, 1938.</span>
+          <span>Price One Penny.</span>
         </div>
         <div class="masthead">
           <span class="title">TypewriterLM</span>
