@@ -3,7 +3,7 @@ export const homeHtml = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TypewriterLM &mdash; Ask a mind that stops at 1913</title>
+    <title>TypewriterLM &mdash; A historical language model</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -284,8 +284,6 @@ export const homeHtml = `<!doctype html>
         </div>
         <p class="motto">A language model trained only upon the written world of 1700&ndash;1938.</p>
         <nav class="contents">
-          <a href="/blog">Research</a>
-          <span class="sep">&middot;</span>
           <a href="https://arxiv.org/abs/2606.02991">Paper</a>
           <span class="sep">&middot;</span>
           <a href="https://huggingface.co/typewriter-ai">&#129303; Hugging Face</a>

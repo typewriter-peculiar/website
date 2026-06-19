@@ -1,6 +1,6 @@
 import { homeHtml } from "./pages/home";
 import { instructHtml, handleChat } from "./pages/instruct";
-import { blogHtml } from "./pages/blog";
+import { researchHtml } from "./pages/research";
 
 export interface Env {
   VLLM_URL: string;
@@ -27,8 +27,8 @@ export default {
       return htmlResponse(instructHtml);
     }
 
-    if (request.method === "GET" && url.pathname === "/blog") {
-      return htmlResponse(blogHtml);
+    if (request.method === "GET" && url.pathname === "/research") {
+      return htmlResponse(researchHtml);
     }
 
     if (request.method === "POST" && url.pathname === "/api/chat") {

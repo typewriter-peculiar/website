@@ -1,4 +1,4 @@
-export const blogHtml = `<!doctype html>
+export const researchHtml = `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
